@@ -36,7 +36,7 @@ namespace Examen03Codigo.ViewModels
         private decimal _Precio;
         public decimal Precio
         {
-            get { return Precio; }
+            get { return _Precio; }
             set
             {
                 _Precio = value;
@@ -61,10 +61,10 @@ namespace Examen03Codigo.ViewModels
 
         public ViewModelListarProductos()
         {
-            AgregarProductoCommand = new RelayCommand(Guardar);
+            AgregarProductoCommand = new RelayCommand(AgregarProducto);
             Productos = new ObservableCollection<Producto>();
         }
-        private void Guardar()
+        private void AgregarProducto()
         {
             Resultado = string.Concat(Nombre, " ", Precio.ToString(), " ", Descripcion);
             Productos.Add(new Producto
